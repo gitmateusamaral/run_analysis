@@ -1,5 +1,28 @@
 CODE BOOK:
 
+Variables on the final data:
+
+ [1] "subject"                  "activity"                 "tBodyAccMeanX"            "tBodyAccMeanY"           
+ [5] "tBodyAccMeanZ"            "tGravityAccMeanX"         "tGravityAccMeanY"         "tGravityAccMeanZ"        
+ [9] "tBodyAccJerkMeanX"        "tBodyAccJerkMeanY"        "tBodyAccJerkMeanZ"        "tBodyGyroMeanX"          
+[13] "tBodyGyroMeanY"           "tBodyGyroMeanZ"           "tBodyGyroJerkMeanX"       "tBodyGyroJerkMeanY"      
+[17] "tBodyGyroJerkMeanZ"       "tBodyAccMagMean"          "tGravityAccMagMean"       "tBodyAccJerkMagMean"     
+[21] "tBodyGyroMagMean"         "tBodyGyroJerkMagMean"     "fBodyAccMeanX"            "fBodyAccMeanY"           
+[25] "fBodyAccMeanZ"            "fBodyAccJerkMeanX"        "fBodyAccJerkMeanY"        "fBodyAccJerkMeanZ"       
+[29] "fBodyGyroMeanX"           "fBodyGyroMeanY"           "fBodyGyroMeanZ"           "fBodyAccMagMean"         
+[33] "fBodyBodyAccJerkMagMean"  "fBodyBodyGyroMagMean"     "fBodyBodyGyroJerkMagMean" "tBodyAccStdX"            
+[37] "tBodyAccStdY"             "tBodyAccStdZ"             "tGravityAccStdX"          "tGravityAccStdY"         
+[41] "tGravityAccStdZ"          "tBodyAccJerkStdX"         "tBodyAccJerkStdY"         "tBodyAccJerkStdZ"        
+[45] "tBodyGyroStdX"            "tBodyGyroStdY"            "tBodyGyroStdZ"            "tBodyGyroJerkStdX"       
+[49] "tBodyGyroJerkStdY"        "tBodyGyroJerkStdZ"        "tBodyAccMagStd"           "tGravityAccMagStd"       
+[53] "tBodyAccJerkMagStd"       "tBodyGyroMagStd"          "tBodyGyroJerkMagStd"      "fBodyAccStdX"            
+[57] "fBodyAccStdY"             "fBodyAccStdZ"             "fBodyAccJerkStdX"         "fBodyAccJerkStdY"        
+[61] "fBodyAccJerkStdZ"         "fBodyGyroStdX"            "fBodyGyroStdY"            "fBodyGyroStdZ"           
+[65] "fBodyAccMagStd"           "fBodyBodyAccJerkMagStd"   "fBodyBodyGyroMagStd"      "fBodyBodyGyroJerkMagStd" 
+
+
+Variables created on the code:
+
 - x_test, y_test = x and y from the test group
 - x_train, y_train = x and y from the training group
 - test = merged data from test group
