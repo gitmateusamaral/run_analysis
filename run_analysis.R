@@ -1,0 +1,57 @@
+library(stringr)
+
+setwd("C:\\Users\\reicl\\Downloads\\Cursos\\Coursera\\Data Science John Hopkins\\Data Cleaning\\Week4\\UCI HAR Dataset")
+
+x_test <- read.table(".\\test\\X_test.txt")
+y_test <- read.table(".\\test\\y_test.txt")
+sub_test <- read.table(".\\test\\subject_test.txt")
+x_train <- read.table(".\\train\\X_train.txt")
+y_train <- read.table(".\\train\\Y_train.txt")
+sub_train <- read.table(".\\train\\subject_train.txt")
+features <- read.table(".\\features.txt")
+
+
+#Merging the all the data into one dataframe
+names(x_test) <- features$V2[1:561]
+names(x_train) <- features$V2[1:561]
+names(y_test) <- "labels"
+names(y_train) <- "labels"
+names(sub_test) <- "subject"
+names(sub_train) <- "subject"
+
+test <- cbind(y_test, x_test)
+test <- cbind(sub_test, test)
+
+train <- cbind(y_train, x_train)
+train <- cbind(sub_train, train)
+
+complete_table <- rbind(test[1:563],train[1:563])
+
+
+#Changing the activity names:
+activity_labels <- c("walking", "walking_upstairs", "walking_downstairs", "sitting", "standing", "laying")
+
+for(j in 1:length(activity_labels)){
+    complete_table$labels[complete_table$labels == j] <- activity_labels[j]
+}
+
+
+#Getting only the columns that have "mean()" and "std()":
+table_mean_std <- complete_table[,1:2] #table_mean_std is the data only with mean(), std(), subjects and labels
+
+table_mean_std <- cbind(table_mean_std, complete_table[grepl("mean()", names(complete_table), fixed = TRUE)])
+table_mean_std <- cbind(table_mean_std, complete_table[grepl("std()", names(complete_table), fixed = TRUE)])
+
+
+#Changing variable names:
+names(table_mean_std) <- gsub("[^[:alnum:]]", "", names(table_mean_std))# "[^[:alnum:]]" removes all special characters like "()"
+names(table_mean_std) <- gsub("mean", "Mean", names(table_mean_std))
+names(table_mean_std) <- gsub("std", "Std", names(table_mean_std))
+
+
+#Step 5:
+finalData <- aggregate(table_mean_std[-1:-2], by = list(table_mean_std$subject, table_mean_std$labels), mean)
+names(finalData)[names(finalData) == "Group.1"] <- "subject"
+names(finalData)[names(finalData) == "Group.2"] <- "activity"
+
+write.table(finalData, file = "FinalData.txt", row.name=FALSE)
