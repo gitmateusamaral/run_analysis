@@ -1,0 +1,12 @@
+CODE BOOK:
+
+- x_test, y_test = x and y from the test group
+- x_train, y_train = x and y from the training group
+- test = merged data from test group
+- train = merged data from train group
+- sub_test, sub_train = subjects for each group
+- features = features from the data
+- complete_table = merged data from train and test
+- table_mean_std = complete table with onyl the mean() and std()
+- finalData = data from step 5
+- activity_labels = labels for the activity
