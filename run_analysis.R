@@ -1,6 +1,6 @@
 library(stringr)
 
-setwd("C:\\Users\\reicl\\Downloads\\Cursos\\Coursera\\Data Science John Hopkins\\Data Cleaning\\Week4\\UCI HAR Dataset")
+setwd("UCI HAR Dataset")
 
 x_test <- read.table(".\\test\\X_test.txt")
 y_test <- read.table(".\\test\\y_test.txt")
@@ -55,3 +55,4 @@ names(finalData)[names(finalData) == "Group.1"] <- "subject"
 names(finalData)[names(finalData) == "Group.2"] <- "activity"
 
 write.table(finalData, file = "FinalData.txt", row.name=FALSE)
+
